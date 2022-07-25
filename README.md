@@ -42,8 +42,6 @@ First clone the project :
   cd gofizzbuzz
 ```
 
-Modify the [.env.sh](./.env.sh) environment file to set the config (ports etc) or use the default one :
-
 ## Run
 
 To run the server simply use :
@@ -57,6 +55,12 @@ To stop the server simply use :
 ```bash
 make stop
 ```
+
+To change ports and other configurations :
+
+Modify the [.env.sh](./.env.sh) environment file to set the config (ports etc) or use the default one.\
+If you changed the ports, you should also update ports in Prometheus and Grafana yml files ([grafana/provisioning/datasources/prometheus.yaml](./grafana/provisioning/datasources/prometheus.yaml) and [prometheus/prometheus.yml](./prometheus/prometheus.yml))
+
 
 ## Usage
 
@@ -91,6 +95,8 @@ This project launches a Prometheus and a Grafana to monitor the server, in parti
 Prometheus is accessible at `http://localhost:9090` (or `PROMETHEUS_PORT` in config).
 
 Grafana is accessible at `http://localhost:3000` (or `GRAFANA_PORT` in config). User is `admin` and the credential is available in [docker-compose.yml](./docker-compose.yml).
+
+If you changed the ports, you should also update ports in Prometheus and Grafana yml files ([grafana/provisioning/datasources/prometheus.yaml](./grafana/provisioning/datasources/prometheus.yaml) and [prometheus/prometheus.yml](./prometheus/prometheus.yml))
 
 ## How it was made
 
