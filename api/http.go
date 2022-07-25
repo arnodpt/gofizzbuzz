@@ -15,11 +15,11 @@ type Server struct {
 }
 
 var (
-	invalidQueryParameters      = []byte(`{"error":"invalid query parameters"}`)
-	negativeLimit               = []byte(`{"error":"limit should be positive"}`)
-	internalJsonError           = []byte(`{"error":"internal json error"}`)
-	internalPrometheusError     = []byte(`{"error":"cannot gather prometheus"}`)
-	notRequestsFound            = []byte(`{"msg":"no requests found"}`)
+	invalidQueryParameters      = []byte(`{"error":"Invalid query parameters. Parameters should be str1 (string), str2 (string), int1 (int), int2 (int)"}`)
+	negativeLimit               = []byte(`{"error":"Invalid limit. Parameter limit should be positive."}`)
+	internalJsonError           = []byte(`{"error":"Internal JSON error."}`)
+	internalPrometheusError     = []byte(`{"error":"Internal Prometheus error. Cannot gather prometheus metrics."}`)
+	notRequestsFound            = []byte(`{"msg":"No requests found."}`)
 )
 
 // newServer creates the server object handling the api calls

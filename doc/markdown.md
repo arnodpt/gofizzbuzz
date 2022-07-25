@@ -46,11 +46,11 @@ GET /fizzbuzz
 
 | Name | Source | Type | Go type | Separator | Required | Default | Description |
 |------|--------|------|---------|-----------| :------: |---------|-------------|
-| int1 | `query` | int (formatted integer) | `int64` |  | ✓ |  |  |
-| int2 | `query` | int (formatted integer) | `int64` |  | ✓ |  |  |
-| limit | `query` | int (formatted integer) | `int64` |  | ✓ |  |  |
-| str1 | `query` | string | `string` |  | ✓ |  |  |
-| str2 | `query` | string | `string` |  | ✓ |  |  |
+| int1 | `query` | int (formatted integer) | `int64` |  |  | `3` | The first int which multiples will be replaced by str1 or str1str2 if it's also a multiple of int2. |
+| int2 | `query` | int (formatted integer) | `int64` |  |  | `5` | The second int which multiples will be replaced by str2 or str1str2 if it's also a multiple of int1. |
+| limit | `query` | int (formatted integer) | `int64` |  |  | `50` | The number to which the fizzbuzz algorithm will end and the size of the final array. |
+| str1 | `query` | string | `string` |  |  | `"fizz"` | The first string that will replace multiples of int1 and be part of multiples of int1 and int2. |
+| str2 | `query` | string | `string` |  |  | `"buzz"` | The second string that will replace multiples of int2 and be part of multiples of int1 and int2. |
 
 #### All responses
 | Code | Status | Description | Has headers | Schema |

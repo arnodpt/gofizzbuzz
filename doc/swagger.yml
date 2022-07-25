@@ -10,30 +10,33 @@ paths:
       summary: Returns a list of strings with numbers from 1 to limit, where all multiples of int1 are replaced by str1, all multiples of int2 are replaced by str2, all multiples of int1 and int2 are replaced by str1str2.
       parameters:
         - name: str1
-          required: true
           in: query
           type: string
-          minLength: 1
+          default: "fizz"
+          description: "The first string that will replace multiples of int1 and be part of multiples of int1 and int2."
         - name: str2
-          required: true
           in: query
           type: string
-          minLength: 1
+          default: "buzz"
+          description: "The second string that will replace multiples of int2 and be part of multiples of int1 and int2."
         - name: int1
-          required: true
           in: query
           type: integer
           format: int
+          default: 3
+          description: "The first int which multiples will be replaced by str1 or str1str2 if it's also a multiple of int2."
         - name: int2
-          required: true
           in: query
           type: integer
           format: int
+          default: 5
+          description: "The second int which multiples will be replaced by str2 or str1str2 if it's also a multiple of int1."
         - name: limit
-          required: true
           in: query
           type: integer
           format: int
+          default: 50
+          description: "The number to which the fizzbuzz algorithm will end and the size of the final array."
       responses:
         200:
           description: An array of strings with numbers or str1, str2, str1str2
