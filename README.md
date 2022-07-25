@@ -37,10 +37,10 @@ The versions described here are the one I personally used for this project.
 
 First clone the project :
 
-```
+```bash
   git clone https://github.com/arnodpt/gofizzbuzz
   cd gofizzbuzz
-```sh
+```
 
 Modify the [.env.sh](./.env.sh) environment file to set the config (ports etc) or use the default one :
 
@@ -48,14 +48,14 @@ Modify the [.env.sh](./.env.sh) environment file to set the config (ports etc) o
 
 To run the server simply use :
 
-```
+```bash
 make
-```sh
+```
 
 To stop the server simply use :
 
-```
+```bash
 make stop
-```sh
+```
 
 ## 
