@@ -25,7 +25,7 @@ To run this server you should install the following prerequisites :
 
 - [make](https://linux.die.net/man/1/make) *v4.2.1*
 - [docker](https://docs.docker.com/get-docker/) *v20.10.12*
-- [docker-compose](https://docs.docker.com/compose/install/) *1.29.2*g
+- [docker-compose](https://docs.docker.com/compose/install/) *1.29.2*
 
 To develop, build and test this server you should install Go :
 
@@ -55,6 +55,6 @@ To stop the server simply use :
 
 ```
 make stop
-```bahs
+```bash
 
 ## 
