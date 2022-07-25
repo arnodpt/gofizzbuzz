@@ -16,8 +16,6 @@ type Server struct {
 
 var (
 	invalidQueryParameters      = []byte(`{"error":"invalid query parameters"}`)
-	sameStrings                 = []byte(`{"error":"str1 and str2 should be different strings"}`)
-	sameInts                    = []byte(`{"error":"int1 and int2 should be different numbers"}`)
 	negativeLimit               = []byte(`{"error":"limit should be positive"}`)
 	internalJsonError           = []byte(`{"error":"internal json error"}`)
 	internalPrometheusError     = []byte(`{"error":"cannot gather prometheus"}`)
@@ -59,12 +57,6 @@ func (s *Server) Fizzbuzz(c *fiber.Ctx) error {
 		str2 = "buzz"
 	}
 
-	if str1 == str2 {
-		log.Error().Msgf("%v must be different than %v", str1, str2)
-		c.Context().SetStatusCode(400)
-		return c.Send(sameStrings)
-	}
-
 	// int1 has 3 as a default value
 	var int1 int
 	if queryParameters.Int1 != nil {
@@ -79,11 +71,6 @@ func (s *Server) Fizzbuzz(c *fiber.Ctx) error {
 		int2 = *queryParameters.Int2
 	} else {
 		int2 = 5
-	}
-
-	if int1 == int2 {
-		c.Context().SetStatusCode(400)
-		return c.Send(sameInts)
 	}
 
 	// limit has 50 as a default value

@@ -7,3 +7,6 @@ run:
 
 stop:
 	docker-compose down
+
+test:
+	go test ./api/http_test.go
