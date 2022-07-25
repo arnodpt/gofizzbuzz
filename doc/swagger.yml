@@ -1,0 +1,69 @@
+consumes:
+- application/json
+info:
+  description: REST server that reproduces the original fizzbuzz algorithm but with parameters and metrics.
+  title: A fizzbuzz REST server
+  version: 1.0.0
+paths:
+  /fizzbuzz:
+    get:
+      summary: Returns a list of strings with numbers from 1 to limit, where all multiples of int1 are replaced by str1, all multiples of int2 are replaced by str2, all multiples of int1 and int2 are replaced by str1str2.
+      parameters:
+        - name: str1
+          required: true
+          in: query
+          type: string
+          minLength: 1
+        - name: str2
+          required: true
+          in: query
+          type: string
+          minLength: 1
+        - name: int1
+          required: true
+          in: query
+          type: integer
+          format: int
+        - name: int2
+          required: true
+          in: query
+          type: integer
+          format: int
+        - name: limit
+          required: true
+          in: query
+          type: integer
+          format: int
+      responses:
+        200:
+          description: An array of strings with numbers or str1, str2, str1str2
+          schema:
+            type: array
+            items:
+              type: string
+        400:
+          description: Bad or missing query parameters or negative limit.
+        500:
+          description: An internal error happened while creating the response.
+  /popular:
+    get:
+      summary: Returns the parameters corresponding to the most used request, as well as the number of hits for this request.
+      responses:
+        200:
+          description: A json containing the parameters of the most used request and its count.
+        500:
+          description: An internal error happened while fetching the requests data.
+  /metrics:
+    get:
+      summary: Returns prometheus metrics.
+      responses:
+        200:
+          description: Prometheus metrics
+        500:
+          description: An internal error happened while fetching prometheus.
+
+produces:
+- application/json
+schemes:
+- http
+swagger: "2.0"
